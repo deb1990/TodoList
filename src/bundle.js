@@ -13159,6 +13159,7 @@ function syncHistoryWithStore(history, store) {
   var isTimeTraveling = void 0;
   var unsubscribeFromStore = void 0;
   var unsubscribeFromHistory = void 0;
+  var currentLocation = void 0;
 
   // What does the store say about current location?
   var getLocationInStore = function getLocationInStore(useInitialIfEmpty) {
@@ -13166,14 +13167,14 @@ function syncHistoryWithStore(history, store) {
     return locationState.locationBeforeTransitions || (useInitialIfEmpty ? initialLocation : undefined);
   };
 
-  // Init currentLocation with potential location in store
-  var currentLocation = getLocationInStore();
+  // Init initialLocation with potential location in store
+  initialLocation = getLocationInStore();
 
   // If the store is replayed, update the URL in the browser to match.
   if (adjustUrlOnReplay) {
     var handleStoreChange = function handleStoreChange() {
       var locationInStore = getLocationInStore(true);
-      if (currentLocation === locationInStore) {
+      if (currentLocation === locationInStore || initialLocation === locationInStore) {
         return;
       }
 
@@ -13222,7 +13223,6 @@ function syncHistoryWithStore(history, store) {
   // The enhanced history uses store as source of truth
   return _extends({}, history, {
     // The listeners are subscribed to the store instead of history
-
     listen: function listen(listener) {
       // Copy of last location.
       var lastPublishedLocation = getLocationInStore(true);
