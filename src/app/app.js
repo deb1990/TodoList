@@ -21,9 +21,20 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {cyan500,blueGrey800} from 'material-ui/styles/colors';
+const muiTheme = getMuiTheme({
+    palette: {
+        primary1Color: blueGrey800
+    },
+    appBar: {
+        height: 50
+    }
+});
+
 // Render
 ReactDOM.render((
-    <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={muiTheme}>
         <Provider store={store}>
             <Router history={history}>
                 <Route path="/" component={Login}/>

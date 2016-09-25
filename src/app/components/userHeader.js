@@ -1,12 +1,21 @@
 import React from "react";
 import {connect} from "react-redux";
+
+import AddTodo from "./addTodo";
+
 import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+import Add from 'material-ui/svg-icons/content/add';
 
 class UserHeader extends React.Component {
     showHeader(){
         return <AppBar
             title={this.props.user.name}
-            iconClassNameRight="muidocs-icon-navigation-expand-more"
+            iconElementRight={
+                <IconButton>
+                    <Add onTouchTap={AddTodo}/>
+                </IconButton>
+            }
         />;
     }
 

@@ -3,6 +3,8 @@
  */
 import React from "react";
 import { hashHistory } from 'react-router';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class login extends React.Component {
 
@@ -11,10 +13,18 @@ class login extends React.Component {
     };
 
     render(){
-        return <div>
-            Username<input type="text"/>
-            Password<input type="password"/>
-            <button onClick={this.login}>Login</button>
+        return <div className="loginPage">
+            <TextField
+                floatingLabelText="Username"
+            />
+            <br/>
+            <TextField
+                floatingLabelText="Password"
+                type="password"
+            />
+            <br />
+
+            <RaisedButton label="Login" primary={true} onClick={this.login} />
         </div>
     }
 }

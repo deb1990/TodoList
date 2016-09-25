@@ -8,7 +8,8 @@ import TodoList from "./todoList";
 export default class LoggedIn extends React.Component {
     render(){
         return <div>
-            <UserHeader/><TodoList/>
+            <UserHeader/>
+            <TodoList/>
         </div>
     }
 }
