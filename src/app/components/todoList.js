@@ -13,7 +13,7 @@ class TodoList extends React.Component {
     }
     showTodoList(){
         return this.props.todoData.todos.map((todo, index)=>{
-            return <ListItem key={todo.id}
+            return <ListItem key={index}
                 leftCheckbox={<Checkbox checked={todo.done} onCheck={this.changeTodoState.bind(this, index)}/>}
                 primaryText={todo.text}
             />;
