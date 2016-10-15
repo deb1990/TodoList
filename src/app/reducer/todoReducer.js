@@ -25,7 +25,6 @@ export default function(state = {
         }
         case "ADD_TODO":
         {
-            debugger;
             let todos = state.todos;
             todos.push({
                 text: action.payload.value,

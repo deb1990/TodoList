@@ -39159,7 +39159,6 @@
 	            }
 	        case "ADD_TODO":
 	            {
-	                debugger;
 	                var todos = state.todos;
 	                todos.push({
 	                    text: action.payload.value,
