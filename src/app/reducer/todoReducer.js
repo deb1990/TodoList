@@ -1,17 +1,4 @@
-export default function(state = {
-    addTodo: {
-        showDialog: false
-    },
-    todos: [
-        {
-            text: "Buy Chicken",
-            done: false
-        }
-        , {
-            text: "Learn React",
-            done: false
-        }
-    ]}, action) {
+export default function(state = {todos: []}, action) {
 
     switch (action.type){
         case "UPDATE_TODO":
@@ -34,6 +21,12 @@ export default function(state = {
                 ...state,
                 todos
             }
+        }
+        case "APP_DATA":
+        {
+            return {
+                todos: action.payload.value.todoData
+            };
         }
     }
     return state;

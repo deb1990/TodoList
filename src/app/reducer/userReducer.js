@@ -1,7 +1,9 @@
-export default function() {
-    return {
-        id: "1",
-        name: "Debarshi",
-        email: "deb1990@gmail.com"
+export default function(state = {}, action) {
+    switch(action.type) {
+        case "APP_DATA":
+        {
+            return action.payload.value.user;
+        }
     }
+    return state;
 }
